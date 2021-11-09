@@ -2,6 +2,7 @@
 
 ### Features
 
+* Fast git prompt
 * Autocompletion for Composer (if it's installed)
 * Autocompletion for Kubernetes (if it's installed)
 

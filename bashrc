@@ -16,7 +16,13 @@ if command -v kubectl &> /dev/null; then
 fi
 
 
-# Alias
-if [ -f "$DOTFILES_PATH/bash_aliases" ]; then
-	source "$DOTFILES_PATH/bash_aliases"
+# Aliases
+source "$DOTFILES_PATH/bash_aliases"
+
+if [ -f "$DOTFILES_PATH/bash_aliases_extra" ]; then
+	source "$DOTFILES_PATH/bash_aliases_extra"
 fi
+
+
+# Git prompt
+source "$DOTFILES_PATH/gitstatus/gitstatus.prompt.sh"
