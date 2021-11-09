@@ -11,7 +11,7 @@ fi
 # Kubernetes
 if command -v kubectl &> /dev/null; then
 	source "$DOTFILES_PATH/kubectl_completion"
-	alias k=kubectl
+	alias k='kubectl'
 	complete -F __start_kubectl k
 fi
 
