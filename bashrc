@@ -7,7 +7,16 @@ if command -v composer &> /dev/null; then
 	export PATH="$PATH:"$(composer global config bin-dir --absolute 2> /dev/null)
 fi
 
+
 # Kubernetes
-source "$DOTFILES_PATH/kubectl_completion"
-alias k=kubectl
-complete -F __start_kubectl k
+if command -v kubectl &> /dev/null; then
+	source "$DOTFILES_PATH/kubectl_completion"
+	alias k=kubectl
+	complete -F __start_kubectl k
+fi
+
+
+# Alias
+if [ -f "$DOTFILES_PATH/bash_aliases" ]; then
+	source "$DOTFILES_PATH/bash_aliases"
+fi
