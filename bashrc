@@ -1,6 +1,12 @@
 DOTFILES_PATH="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 
+# bash_completion fallback for macOS
+if ! command -v _get_comp_words_by_ref &> /dev/null && [[ -r /usr/local/etc/profile.d/bash_completion.sh ]]; then
+	source /usr/local/etc/profile.d/bash_completion.sh
+fi
+
+
 # Composer
 if command -v composer &> /dev/null; then
 	source "$DOTFILES_PATH/composer_completion/composer-autocomplete"
@@ -19,7 +25,7 @@ fi
 # Aliases
 source "$DOTFILES_PATH/bash_aliases"
 
-if [ -f "$DOTFILES_PATH/bash_aliases_extra" ]; then
+if [[ -r "$DOTFILES_PATH/bash_aliases_extra" ]]; then
 	source "$DOTFILES_PATH/bash_aliases_extra"
 fi
 
