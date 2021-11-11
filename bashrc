@@ -1,5 +1,8 @@
 DOTFILES_PATH="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
+# Exports
+source "$DOTFILES_PATH/bash_exports"
+
 
 # bash_completion fallback for macOS
 if ! command -v _get_comp_words_by_ref &> /dev/null && [[ -r /usr/local/etc/profile.d/bash_completion.sh ]]; then
