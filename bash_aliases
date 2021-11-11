@@ -3,9 +3,8 @@ alias path='echo -e ${PATH//:/\\n}'
 
 # List all files in long format with numerical permissions
 # Based on http://stackoverflow.com/a/1796009
-unalias ll 2>/dev/null
 function ll() {
-	\ls -lha ${LS_GNU:+--color=always --group-directories-first}  | awk '{k=0;for(i=0;i<=8;i++)k+=((substr($1,i+2,1)~/[rwx]/) *2^(8-i));if(k)printf("%0o ",k);print}'
+	\ls -lha ${LS_GNU:+--color=always --group-directories-first} | awk '{k=0;for(i=0;i<=8;i++)k+=((substr($1,i+2,1)~/[rwx]/) *2^(8-i));if(k)printf("%0o ",k);print}'
 }
 
 alias ..='cd ..'

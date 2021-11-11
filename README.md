@@ -15,4 +15,4 @@
 
 
 ### Requirements macOS
-* `brew install bash-completion@2`
+* `brew install bash bash-completion@2`

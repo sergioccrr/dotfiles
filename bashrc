@@ -5,6 +5,7 @@ source "$DOTFILES_PATH/bash_exports"
 
 
 # bash_completion fallback for macOS
+# See: https://itnext.io/programmable-completion-for-bash-on-macos-f81a0103080b
 if ! command -v _get_comp_words_by_ref &> /dev/null && [[ -r /usr/local/etc/profile.d/bash_completion.sh ]]; then
 	source /usr/local/etc/profile.d/bash_completion.sh
 fi
@@ -25,7 +26,9 @@ if command -v kubectl &> /dev/null; then
 fi
 
 
-# Aliases
+# Remove default aliases and load own
+unalias ll la l alert 2>/dev/null
+
 source "$DOTFILES_PATH/bash_aliases"
 
 if [[ -r "$DOTFILES_PATH/bash_aliases_extra" ]]; then
@@ -33,5 +36,8 @@ if [[ -r "$DOTFILES_PATH/bash_aliases_extra" ]]; then
 fi
 
 
-# Git prompt
-source "$DOTFILES_PATH/gitstatus/gitstatus.prompt.sh"
+# Git
+if command -v git &> /dev/null; then
+	source "$DOTFILES_PATH/git_aliases"
+	source "$DOTFILES_PATH/gitstatus/gitstatus.prompt.sh"
+fi

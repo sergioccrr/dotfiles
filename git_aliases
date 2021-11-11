@@ -1,0 +1,48 @@
+# This file is part of sergioccrr/dotfiles.
+#
+# (c) 2021 Sergio Cruz
+#
+# For the full copyright and license information, please view the LICENSE
+# file that was distributed with this source code.
+#
+
+alias s='clear && clear && git status --untracked-files'
+
+function g() {
+	clear
+	if [ "$2" == "add" ]; then
+		git add -- "$1"
+		history -d `history | tail -1 | awk '{print $1}'`
+	elif [ "$2" == "patch" ]; then
+		git add -p -- "$1"
+	elif [ "$2" == "unadd" ]; then
+		git reset -- "$1"
+		history -d `history | tail -1 | awk '{print $1}'`
+	elif [ "$2" == "discard" ]; then
+		git reset -- "$1"
+		git checkout -- "$1"
+		history -d `history | tail -1 | awk '{print $1}'`
+	elif [ "$2" == "changes" ]; then
+		git diff --staged -U5 --ignore-space-at-eol --color-words -- "$1"
+	else
+		git diff -U5 --ignore-space-at-eol --color-words -- "$1"
+	fi
+}
+
+_g_completions() {
+	if [ "${#COMP_WORDS[@]}" != '2' ] && [ "${#COMP_WORDS[@]}" != "3" ]; then
+		return
+	fi
+
+	if [ "$COMP_CWORD" == '1' ]; then
+		compopt -o default
+		COMPREPLY=()
+		return
+	fi
+
+	if [ "$COMP_CWORD" == '2' ]; then
+		while IFS='' read -r line; do COMPREPLY+=("$line"); done < <(compgen -W "add patch unadd discard changes" "${COMP_WORDS[2]}")
+	fi
+}
+
+complete -F _g_completions g
