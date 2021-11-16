@@ -10,3 +10,5 @@ function ll() {
 alias ..='cd ..'
 
 alias rm='rm -v'
+
+alias igrep='grep -i'

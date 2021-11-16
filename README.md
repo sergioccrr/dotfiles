@@ -9,8 +9,9 @@
 
 ### Aliases
 * `..` shorthand alias for `cd ..`
-* `ll` list all files in long format with numerical permissions
+* `igrep` shorthand alias for `grep -i`
 * `k` shorthand alias for `kubectl`
+* `ll` list all files in long format with numerical permissions
 * `path` print each PATH entry on a separate line
 
 
