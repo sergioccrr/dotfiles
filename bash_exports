@@ -15,6 +15,6 @@ export HISTCONTROL='ignoreboth'
 
 
 # Determine ls version
-if \ls --color / &> /dev/null; then
+if \ls --group-directories-first / &> /dev/null; then
 	export LS_GNU='1'
 fi
