@@ -4,10 +4,18 @@ DOTFILES_PATH="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pw
 source "$DOTFILES_PATH/bash_exports"
 
 
+# Homebrew
+if [[ -r /usr/local/bin/brew ]]; then
+	eval "$(/usr/local/bin/brew shellenv)" # Intel CPU
+elif [[ -r /opt/homebrew/bin/brew ]]; then
+	eval "$(/opt/homebrew/bin/brew shellenv)" # Apple Silicon CPU
+fi
+
+
 # bash_completion fallback for macOS
 # See: https://itnext.io/programmable-completion-for-bash-on-macos-f81a0103080b
-if ! command -v _get_comp_words_by_ref &> /dev/null && [[ -r /usr/local/etc/profile.d/bash_completion.sh ]]; then
-	source /usr/local/etc/profile.d/bash_completion.sh
+if ! command -v _get_comp_words_by_ref &> /dev/null && [[ -r "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh" ]]; then
+	source "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
 fi
 
 

@@ -2,10 +2,12 @@
 
 ### Features
 
-* Fast git prompt
-* Autocompletion for Composer (if it's installed)
-* Autocompletion for Kubernetes (if it's installed)
+* Auto export Homebrew* environment variables
+* Fast Git prompt
+* Autocompletion for Composer*
+* Autocompletion for Kubernetes*
 
+*\* if it's installed*
 
 ### Aliases
 * `..` shorthand alias for `cd ..`
@@ -16,4 +18,6 @@
 
 
 ### Requirements macOS
-* `brew install bash bash-completion@2`
+* [Homebrew](https://brew.sh/#install)
+* [bash >= 4.2](https://formulae.brew.sh/formula/bash#default)
+* [bash-completion@2](https://formulae.brew.sh/formula/bash-completion@2#default)
