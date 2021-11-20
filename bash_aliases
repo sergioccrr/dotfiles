@@ -1,3 +1,6 @@
+# Remove some default aliases
+unalias ll la l alert 2>/dev/null
+
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 

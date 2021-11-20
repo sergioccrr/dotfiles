@@ -26,14 +26,8 @@ if command -v kubectl &> /dev/null; then
 fi
 
 
-# Remove default aliases and load own
-unalias ll la l alert 2>/dev/null
-
+# Aliases
 source "$DOTFILES_PATH/bash_aliases"
-
-if [[ -r "$DOTFILES_PATH/bash_aliases_extra" ]]; then
-	source "$DOTFILES_PATH/bash_aliases_extra"
-fi
 
 
 # Git
@@ -50,3 +44,9 @@ PS1+='\[\033[01;34m\]\w\[\033[00m\]'              # blue current working directo
 PS1+='${GITSTATUS_PROMPT:+ [$GITSTATUS_PROMPT]}'  # git status (requires promptvars option)
 PS1+='\n\[\033[01;$((31+!$?))m\]\$\[\033[00m\] '  # green/red (success/error) $/# (normal/root)
 PS1+='\[\e]0;\u@\h: \w\a\]'                       # terminal title: user@host: dir
+
+
+# Extra
+if [[ -r "$DOTFILES_PATH/bash_extra" ]]; then
+	source "$DOTFILES_PATH/bash_extra"
+fi
