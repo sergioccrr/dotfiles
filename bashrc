@@ -47,6 +47,9 @@ fi
 
 
 # Prompt
+PROMPT_DIRTRIM=3	# Shorten current directory
+shopt -s promptvars	# Enable promptvars so that ${GITSTATUS_PROMPT} in PS1 is expanded
+
 PS1='\[\033[01;32m\]\u@\h\[\033[00m\] '           # green user@host
 PS1+='\[\033[01;34m\]\w\[\033[00m\]'              # blue current working directory
 PS1+='${GITSTATUS_PROMPT:+ [$GITSTATUS_PROMPT]}'  # git status (requires promptvars option)

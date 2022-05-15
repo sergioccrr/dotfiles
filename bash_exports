@@ -18,3 +18,7 @@ export HISTCONTROL='ignoreboth'
 if \ls --group-directories-first / &> /dev/null; then
 	export LS_GNU='1'
 fi
+
+
+# Remove any previous command in PROMPT_COMMAND
+export PROMPT_COMMAND=''
