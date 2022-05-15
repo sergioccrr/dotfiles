@@ -20,7 +20,7 @@ function g() {
 		history -d `history | tail -1 | awk '{print $1}'`
 	elif [ "$2" == "discard" ]; then
 		git reset -- "$1"
-		git checkout -- "$1"
+		git -c core.hooksPath=/dev/null checkout -- "$1"
 		history -d `history | tail -1 | awk '{print $1}'`
 	elif [ "$2" == "changes" ]; then
 		git diff --staged -U5 --ignore-space-at-eol --color-words -- "$1"
