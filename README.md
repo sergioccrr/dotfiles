@@ -6,6 +6,7 @@
 * Fast Git prompt
 * Autocompletion for Composer*
 * Autocompletion for Kubernetes*
+* Current Kubernetes context in prompt
 
 *\* if it's installed*
 

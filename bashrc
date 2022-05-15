@@ -31,6 +31,12 @@ if command -v kubectl &> /dev/null; then
 	source "$DOTFILES_PATH/kubectl_completion"
 	alias k='kubectl'
 	complete -F __start_kubectl k
+
+	function k8s_prompt_update() {
+		K8S_PROMPT="$(kubectl config current-context 2>/dev/null)"
+	}
+
+	PROMPT_COMMAND="k8s_prompt_update;$PROMPT_COMMAND"
 fi
 
 
@@ -48,11 +54,12 @@ fi
 
 # Prompt
 PROMPT_DIRTRIM=3	# Shorten current directory
-shopt -s promptvars	# Enable promptvars so that ${GITSTATUS_PROMPT} in PS1 is expanded
+shopt -s promptvars	# Enable promptvars so that ${XXX_PROMPT} in PS1 is expanded
 
 PS1='\[\033[01;32m\]\u@\h\[\033[00m\] '           # green user@host
 PS1+='\[\033[01;34m\]\w\[\033[00m\]'              # blue current working directory
 PS1+='${GITSTATUS_PROMPT:+ [$GITSTATUS_PROMPT]}'  # git status (requires promptvars option)
+PS1+='${K8S_PROMPT:+ ☸️  $K8S_PROMPT}'             # k8s status (requires promptvars option)
 PS1+='\n\[\033[01;$((31+!$?))m\]\$\[\033[00m\] '  # green/red (success/error) $/# (normal/root)
 PS1+='\[\e]0;\u@\h: \w\a\]'                       # terminal title: user@host: dir
 
