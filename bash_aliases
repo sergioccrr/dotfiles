@@ -10,6 +10,7 @@ function ll() {
 	CLICOLOR_FORCE=1 \ls -lha ${LS_GNU:+--color=always --group-directories-first} | awk '{k=0;for(i=0;i<=8;i++)k+=((substr($1,i+2,1)~/[rwx]/) *2^(8-i));if(k)printf("%0o ",k);print}'
 }
 
+alias ~='cd ~'
 alias ..='cd ..'
 
 alias rm='rm -v'

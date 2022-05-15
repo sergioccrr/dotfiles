@@ -9,7 +9,9 @@
 
 *\* if it's installed*
 
+
 ### Aliases
+* `~` shorthand alias for `cd ~`
 * `..` shorthand alias for `cd ..`
 * `igrep` shorthand alias for `grep -i`
 * `k` shorthand alias for `kubectl`
@@ -21,3 +23,15 @@
 * [Homebrew](https://brew.sh/#install)
 * [bash >= 4.2](https://formulae.brew.sh/formula/bash#default)
 * [bash-completion@2](https://formulae.brew.sh/formula/bash-completion@2#default)
+
+
+### Install
+```bash
+git clone git@github.com:sergioccrr/dotfiles.git ~/.dotfiles
+
+# Linux
+echo -e '\nsource ~/.dotfiles/bashrc' >> ~/.bashrc
+
+# macOS
+echo -e '\nsource ~/.dotfiles/bashrc' >> ~/.bash_profile
+```
