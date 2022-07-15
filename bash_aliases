@@ -17,3 +17,8 @@ alias ..='cd ..'
 alias rm='rm -v'
 
 alias igrep='grep -i'
+
+# Make ping "accept" URLs
+function ping() {
+	command ping $(echo "$1" | cut -d'/' -f3) "${@:2}"
+}

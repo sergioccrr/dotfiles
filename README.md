@@ -18,6 +18,7 @@
 * `k` shorthand alias for `kubectl`
 * `ll` list all files in long format with numerical permissions
 * `path` print each PATH entry on a separate line
+* `ping` now "accept" URLs
 
 
 ### Requirements macOS
