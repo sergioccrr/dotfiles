@@ -29,7 +29,7 @@
 
 ### Install
 ```bash
-git clone git@github.com:sergioccrr/dotfiles.git ~/.dotfiles
+git clone --depth 1 https://github.com/sergioccrr/dotfiles.git ~/.dotfiles
 
 # Linux
 echo -e '\nsource ~/.dotfiles/bashrc' >> ~/.bashrc
