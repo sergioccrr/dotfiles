@@ -37,6 +37,10 @@ if command -v kubectl &> /dev/null; then
 	}
 
 	PROMPT_COMMAND="k8s_prompt_update;$PROMPT_COMMAND"
+
+	if command -v kubecolor &> /dev/null; then
+		alias kubectl="kubecolor"
+	fi
 fi
 
 
